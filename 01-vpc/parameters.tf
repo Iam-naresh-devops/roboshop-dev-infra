@@ -1,13 +1,13 @@
 resource "aws_ssm_parameter" "vpc" {
   name  = "/${var.project}/${var.environment}/vpc_id"
   type  = "String"
-  value = module.eternalplace_vpc_vpc.vpc_id
+  value = module.eternalplace_vpc.vpc_id
 }
 resource "aws_ssm_parameter" "publicsubnet" {
 
   name  = "/${var.project}/${var.environment}/public_subnet_ids"
   type  = "StringList"
-  value = join(",",module.eternalplace_vpc_vpc.public_subnet_ids)
+  value = join(",",module.eternalplace_vpc.public_subnet_ids)
 }
 resource "aws_ssm_parameter" "dbsubnet" {
 
