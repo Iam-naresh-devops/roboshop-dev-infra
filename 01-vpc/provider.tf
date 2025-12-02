@@ -2,15 +2,18 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "~> 5.0"
+      version = "~> 6.0"
  }
  
     }
 backend "s3" {
-    bucket = "eternal-s3-dev"
-    key    = "vpc-1"
-    region = "us-east-1"
-    dynamodb_table = "s3-table-dev"
+   bucket = "roboshop-eternal-s3-terraformstate-dev"
+   key    = "vpc/terraform.tfstate"
+   encrypt = true
+   region = "us-east-1"
+   use_lockfile = true
+
+    
     }
 
 }
